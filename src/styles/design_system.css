@@ -1,0 +1,15 @@
+:root{
+    --background-color: #121212;
+    --color-primary: #A3A3A3;
+    --color-secondary: #FFFFFF;
+    --color-accent: #FF00F2;
+
+    --step--2: clamp(0.6076rem, 0.5289rem + 0.3497vw, 0.8rem);
+    --step--1: clamp(0.7292rem, 0.6184rem + 0.4924vw, 1rem);
+    --step-0: clamp(0.875rem, 0.7216rem + 0.6818vw, 1.25rem);
+    --step-1: clamp(1.05rem, 0.8403rem + 0.9318vw, 1.5625rem);
+    --step-2: clamp(1.26rem, 0.9764rem + 1.2602vw, 1.9531rem);
+    --step-3: clamp(1.512rem, 1.1318rem + 1.6898vw, 2.4414rem);
+    --step-4: clamp(1.8144rem, 1.3082rem + 2.2497vw, 3.0518rem);
+    --step-5: clamp(2.1773rem, 1.5074rem + 2.9771vw, 3.8147rem);
+}

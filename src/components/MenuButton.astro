@@ -1,0 +1,72 @@
+<menu-button>
+  <button>Menu</button>
+  <p hidden> X </p>
+</menu-button>
+
+<script>
+  // Define the behavior for our new type of HTML element.
+  class MenuButton extends HTMLElement {
+    connectedCallback() {
+
+      const button = this.querySelector("button");
+      const paragraph = this.querySelector("p");
+
+      if (button === null || paragraph === null) {
+        return;
+      }
+
+        button.addEventListener("click", () => {
+          const menuScreen = document.querySelector("menu-screen");
+          const body = document.querySelector("body");
+
+          if (menuScreen === null || body === null) {
+            return;
+          }
+
+          menuScreen.toggleAttribute("hidden");
+          body.classList.toggle("menu-open");
+          button.toggleAttribute("hidden");
+          paragraph.toggleAttribute("hidden");
+        });
+
+        paragraph.addEventListener("click", () => {
+          const menuScreen = document.querySelector("menu-screen");
+          const body = document.querySelector("body");
+
+          if (menuScreen === null || body === null) {
+            return;
+          }
+
+          menuScreen.toggleAttribute("hidden");
+          body.classList.toggle("menu-open");
+          button.toggleAttribute("hidden");
+          paragraph.toggleAttribute("hidden");
+        });
+     
+    }
+  }
+
+  customElements.define("menu-button", MenuButton);
+</script>
+
+<style>
+  button {
+    cursor: pointer;
+    font-family: 'Nunito', sans-serif;
+    font-size: var(--step-1);
+    color: var(--color-secondary);
+    background-color: transparent;
+    border: 2px solid var(--color-accent);
+    border-radius: 11px;
+    width: 5em;
+    height: 2em;
+  }
+
+  p {
+    cursor: pointer;
+    font-family: 'Nunito', sans-serif;
+    font-size: var(--step-2);
+    color: var(--color-secondary);
+    margin: 0;
+  }
+</style>
