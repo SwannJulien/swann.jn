@@ -1,7 +1,7 @@
 :root{
     --background-color: #121212;
     --color-primary: #A3A3A3;
-    --color-secondary: #F0F0F0;
+    --color-secondary: #FFFFFF;
     --color-accent: #FF00F2;
 
     --step--2: clamp(0.6076rem, 0.5289rem + 0.3497vw, 0.8rem);
