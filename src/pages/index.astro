@@ -4,6 +4,40 @@ import Layout from '../layouts/Layout.astro';
 
 <Layout>
 	<div class="container">
-		<h1>Hello home page</h1>
+		<h1>La <span>créativité</span> n'a de limites que celles qu'on s'impose</h1>
+		<p>Écouter, comprendre, proposer et construire l’application qui donne vie à vos idées, c’est mon métier.</p>
 	</div>	
 </Layout>
+
+<style>
+	.container {
+		margin-top: 3rem; 
+		
+		@media (min-width: 768px) {
+			margin-top: 4rem;
+			max-width: 80%;
+			margin-inline: auto;
+		}
+		@media (min-width: 1024px) {
+			margin-top: 5rem;
+			max-width: 65%;
+		}
+	}
+
+	h1 {
+		font-family: 'Lora', serif;
+		font-size: var(--step-5);
+		font-weight: 500;
+	}
+
+	p {
+		margin-top: 2em;
+		font-family: 'Nunito', sans-serif;
+		font-size: var(--step-2);
+		color: var(--color-primary);
+	}
+
+	span {
+		color: var(--color-accent);
+	}
+</style>
