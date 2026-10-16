@@ -4,6 +4,37 @@ import Layout from '../layouts/Layout.astro';
 
 <Layout>
 	<div class="container">
-		<h1>Hello about page</h1>
+		<h1>A propos</h1>
+		<p>Quand j'étais petit je jouais sur l'ordinateur de mon grand-père, un vieil IBM (5170?) dans lequel il fallait insérer des disquetes 5 pouces 1/4. Oui ça remonte! Mon grand père était lui même informaticien à la retraite. Il a fait parti des pioniers de l'informatique. Il me racontait le temps où il utilisait des carte perforées et il m'a appris à naviguer dans le terminal DOS pour lancer mes jeux.</p>
+		<p>30 ans plus tard et après une première carrière professionnel dans le commerce international, me voici lancé dans une folle aventure: me reconvertir en tant que Developpeur d'applications web.</p>
+		<p>En quelques sorte j'ai presque l'impression de suivre les pas de mon grand-père, militaire de carrière reconverti dans le civil à plus de 30 ans dans l'informatique. </p>
+		<p>Ce métier est passionnant. Je suis vraiment tombé dedans un peu par hasard alors que j’étais à l’université: premier design web avec Adobe Photoshop CS6, première feuille de style CSS et markup HTML. Il y a presque quelque chose de magique que de voir son site prendre forme dans son navigateur. </p>
+		<p>Ce métier à également bien changé depuis. Il est loin le temps où on épluchait les commentaires sur Stackoverflow, des copier-coller des bouts de codes en espérant que ça fonctionne. J’en ressens presque de la nostalgie par moment. </p>
+		<p>Mais c’est ainsi. Quand on se lance dans l'informatique, on sait très bien que nous devrons nous adapter, nour réinventer sans cesse, sortir de notre zone de confort. C’est ce qui fait aussi la beauté de ce métier. </p>
+		<p>A travers ce site, sans grande prétention, je présente les projets personnels sur lesquels j’ai travaillé et continue de travailler. Et aussi, il s’agit pour moi d’un espace d’expression où je publie des articles, mes réflexions, mes découvertes.</p>
+		<p>Bienvenue amis du web! <br>Swann</p>
 	</div>	
 </Layout>
+
+<style>
+	.container {
+		padding-bottom: 2rem;
+		@media (min-width: 1024px) {
+			margin-inline: auto;
+			max-width: 60%;
+		}
+	}
+	h1 {
+		font-family: 'Nunito', sans-serif;
+		font-size: var(--step-3);
+		font-weight: 500;
+	}
+
+	p {
+		font-family: 'Nunito', sans-serif;
+		font-size: var(--step-1);
+		color: var(--color-primary);
+		text-align: justify;
+		max-width: 60ch;
+	}
+</style>
