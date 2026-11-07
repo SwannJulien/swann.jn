@@ -1,5 +1,20 @@
+---
+import ButtonJn from "./ButtonJn.astro";
+
+
+---
+
 <menu-button>
-  <button>Menu</button>
+  <div class="menu-button-container">
+    <svg
+      class="menu-icon" 
+      xmlns="http://www.w3.org/2000/svg" 
+      viewBox="0 0 24 24"
+    >
+      <path d="M3,18V16H21v2H3Zm0-5V11H21v2H3ZM3,8V6H21V8H3Z"/>
+    </svg> 
+  </div>
+  <!--<ButtonJn class="menu-button" text="Menu"/> -->
   <p hidden> X </p>
 </menu-button>
 
@@ -8,14 +23,14 @@
   class MenuButton extends HTMLElement {
     connectedCallback() {
 
-      const button = this.querySelector("button");
+      const menuButton = this.querySelector("svg");
       const paragraph = this.querySelector("p");
 
-      if (button === null || paragraph === null) {
+      if (menuButton === null || paragraph === null) {
         return;
       }
 
-        button.addEventListener("click", () => {
+        menuButton.addEventListener("click", () => {
           const menuScreen = document.querySelector("menu-screen");
           const body = document.querySelector("body");
 
@@ -25,7 +40,7 @@
 
           menuScreen.toggleAttribute("hidden");
           body.classList.toggle("menu-open");
-          button.toggleAttribute("hidden");
+          menuButton.setAttribute("display", "none");
           paragraph.toggleAttribute("hidden");
         });
 
@@ -39,7 +54,7 @@
 
           menuScreen.toggleAttribute("hidden");
           body.classList.toggle("menu-open");
-          button.toggleAttribute("hidden");
+          menuButton.setAttribute("display", "block");
           paragraph.toggleAttribute("hidden");
         });
      
@@ -50,18 +65,6 @@
 </script>
 
 <style>
-  button {
-    cursor: pointer;
-    font-family: 'Nunito', sans-serif;
-    font-size: var(--step-1);
-    color: var(--color-secondary);
-    background-color: transparent;
-    border: 2px solid var(--color-accent);
-    border-radius: 11px;
-    width: 5em;
-    height: 2em;
-  }
-
   p {
     cursor: pointer;
     font-family: 'Nunito', sans-serif;
@@ -69,4 +72,16 @@
     color: var(--color-secondary);
     margin: 0;
   }
+
+ .menu-icon {
+  width: 40px;
+  color: var(--color-secondary);
+  fill: currentColor;
+  cursor: pointer;   
+  }
+
+  .menu-button-container:hover {
+    background-color: var(--color-primary);
+  }
+
 </style>
