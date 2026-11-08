@@ -1,11 +1,9 @@
 ---
-import ButtonJn from "./ButtonJn.astro";
-
-
+import MenuScreen from './MenuScreen.astro';
 ---
 
 <menu-button>
-  <div class="menu-button-container">
+  <div class="hamburger-menu">
     <svg
       class="menu-icon" 
       xmlns="http://www.w3.org/2000/svg" 
@@ -14,8 +12,8 @@ import ButtonJn from "./ButtonJn.astro";
       <path d="M3,18V16H21v2H3Zm0-5V11H21v2H3ZM3,8V6H21V8H3Z"/>
     </svg> 
   </div>
-  <!--<ButtonJn class="menu-button" text="Menu"/> -->
-  <p hidden> X </p>
+  
+  <MenuScreen/>
 </menu-button>
 
 <script>
@@ -24,40 +22,32 @@ import ButtonJn from "./ButtonJn.astro";
     connectedCallback() {
 
       const menuButton = this.querySelector("svg");
-      const paragraph = this.querySelector("p");
+      const closeButton = this.querySelector(".close-button");
+      const menuScreen = this.querySelector("menu-screen");
+      const body = document.querySelector("body");
 
-      if (menuButton === null || paragraph === null) {
+      if (menuButton === null || closeButton === null || menuScreen === null || body === null) {
         return;
       }
 
-        menuButton.addEventListener("click", () => {
-          const menuScreen = document.querySelector("menu-screen");
-          const body = document.querySelector("body");
+      const openMenu = () => {
+        menuScreen.classList.add("is-open");
+        body.classList.add("menu-open");
+      };
 
-          if (menuScreen === null || body === null) {
-            return;
-          }
+      const closeMenu = () => {
+        menuScreen.classList.remove("is-open");
+        body.classList.remove("menu-open");
+      };
 
-          menuScreen.toggleAttribute("hidden");
-          body.classList.toggle("menu-open");
-          menuButton.setAttribute("display", "none");
-          paragraph.toggleAttribute("hidden");
-        });
+      menuButton.addEventListener("click", openMenu);
+      closeButton.addEventListener("click", closeMenu);
 
-        paragraph.addEventListener("click", () => {
-          const menuScreen = document.querySelector("menu-screen");
-          const body = document.querySelector("body");
-
-          if (menuScreen === null || body === null) {
-            return;
-          }
-
-          menuScreen.toggleAttribute("hidden");
-          body.classList.toggle("menu-open");
-          menuButton.setAttribute("display", "block");
-          paragraph.toggleAttribute("hidden");
-        });
-     
+      window.addEventListener("resize", () => {
+        if (window.innerWidth >= 768) {
+          closeMenu();
+        }
+      });
     }
   }
 
@@ -65,23 +55,16 @@ import ButtonJn from "./ButtonJn.astro";
 </script>
 
 <style>
-  p {
-    cursor: pointer;
-    font-family: 'Nunito', sans-serif;
-    font-size: var(--step-2);
-    color: var(--color-secondary);
-    margin: 0;
-  }
-
  .menu-icon {
-  width: 40px;
-  color: var(--color-secondary);
-  fill: currentColor;
-  cursor: pointer;   
+    width: 40px;
+    color: var(--color-secondary);
+    fill: currentColor;
+    cursor: pointer;   
   }
 
-  .menu-button-container:hover {
-    background-color: var(--color-primary);
+  .hamburger-menu {
+    @media (min-width: 768px) {
+      display: none;
+    }
   }
-
 </style>
