@@ -1,0 +1,63 @@
+---
+import ButtonJn from '../components/ButtonJn.astro';
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout>
+	<div class="container">
+		<h1>Booksnap</h1>
+		<h2>Application web de gestion de bibliothèque pour moyenes et grandes écoles</h2>
+		<p>Gérer votre bibliothèque scolaire n’importe oú directement depuis votre téléphone portable: catalogue, emprunts, retours, réservations, notifications.</p>
+	</div>
+	<div class="cta-container">
+		<ButtonJn class="docu-button" text="Documentation"/>	
+		<ButtonJn class="docu-button" text="Demo"/>	
+	</div>
+</Layout>
+
+<style>
+	.container {
+		margin-top: 6rem;
+		@media (min-width: 1024px) {
+			margin-inline: auto;
+			max-width: 60%;
+		}
+	}
+
+	h1 {
+		font-family: 'Nunito', sans-serif;
+		font-size: var(--step-4);
+		font-weight: 500;
+		color: var(--color-accent);
+		text-align: center;
+	}
+
+	h2 {
+		font-family: 'Nunito', sans-serif;
+		font-size: var(--step-3);
+		font-weight: 300;
+		color: var(--color-secondary);
+		text-align: center;
+	}
+
+	p {
+		font-family: 'Nunito', sans-serif;
+		font-size: var(--step-1);
+		color: var(--color-primary);
+		text-align: center;
+		margin-top: 2rem;
+		max-width: 60ch;
+		margin-inline: auto;
+	}
+
+	.cta-container {
+		display: flex;
+		justify-content: center;
+		gap: 2rem;
+		margin-top: 6rem;
+	}
+	.docu-button	{
+		border-radius: 40px;
+		width: 9em;
+	}
+</style>
