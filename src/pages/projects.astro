@@ -47,6 +47,7 @@ import Layout from '../layouts/Layout.astro';
         color: var(--color-primary);
         line-height: 1.5;
         text-align: justify;
+        margin-bottom: 0;
     }
     a {
         display: flex;
@@ -60,14 +61,15 @@ import Layout from '../layouts/Layout.astro';
         font-size: var(--step-0);
         font-weight: 600;
         color: var(--color-accent);
-        width: 160px;
-        height: 60px;
     }
     a::before {
-        content: '>';
-        display: inline-block;
+        content: '>>>';
+        display: none;
         margin-right: 0.5rem;
-        color: var(--color-primary);
+        color: var(--color-accent);
+    }
+    a:hover:before {
+        display: inline-block;
     }
     .card-container {
         display: grid;
@@ -81,7 +83,6 @@ import Layout from '../layouts/Layout.astro';
         flex-direction: column;
         background-color: var(--color-secondary);
         border-radius: 0.5rem;
-        height: 100%;
         padding: 1.5rem;
     }
     article h3 {
@@ -90,6 +91,7 @@ import Layout from '../layouts/Layout.astro';
         font-weight: 600;
         color: var(--background-color);
         margin-bottom: 0.5rem;
+        margin-top: .5rem;
     }
     article p {
         color: #404040;
