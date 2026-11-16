@@ -1,17 +1,22 @@
 ---
-import ButtonJn from '../components/ButtonJn.astro';
-import Layout from '../layouts/Layout.astro';
+import ButtonJn from '../../components/ButtonJn.astro';
+import Layout from '../../layouts/Layout.astro';
+import { getLangPaths, useTranslations } from '../../i18n/utils';
+
+export const getStaticPaths = getLangPaths;
+
+const t = useTranslations(Astro.currentLocale);
 ---
 
 <Layout>
 	<div class="container">
 		<h1>Booksnap</h1>
-		<h2>Application web de gestion de bibliothèque pour moyenes et grandes écoles</h2>
-		<p>Gérer votre bibliothèque scolaire n’importe oú directement depuis votre téléphone portable: catalogue, emprunts, retours, réservations, notifications.</p>
+		<h2>{t('projects.booksnap')}</h2>
+		<p>{t('booksnap.description')}</p>
 	</div>
 	<div class="cta-container">
-		<ButtonJn class="docu-button" text="Documentation"/>	
-		<ButtonJn class="docu-button" text="Demo"/>	
+		<ButtonJn class="docu-button" text={t('booksnap.docs')}/>	
+		<ButtonJn class="docu-button" text={t('booksnap.demo')}/>	
 	</div>
 </Layout>
 

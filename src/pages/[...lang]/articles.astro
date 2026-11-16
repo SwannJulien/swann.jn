@@ -1,0 +1,12 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { getLangPaths } from '../../i18n/utils';
+
+export const getStaticPaths = getLangPaths;
+---
+
+<Layout>
+	<div class="container">
+		<h1>Hello articles page</h1>
+	</div>	
+</Layout>

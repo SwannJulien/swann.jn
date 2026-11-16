@@ -1,27 +1,33 @@
 ---
-import Layout from '../layouts/Layout.astro';
+import { getRelativeLocaleUrl } from 'astro:i18n';
+import Layout from '../../layouts/Layout.astro';
+import { getLangPaths, useTranslations } from '../../i18n/utils';
+
+export const getStaticPaths = getLangPaths;
+const currentLang = Astro.currentLocale || "fr";
+const t = useTranslations(Astro.currentLocale);
 ---
 <Layout>
 	<div class="container">
-        <h2>Voici les projets personnels sur lesquels j'ai travaillé récemment.</h2>
-        <p>Certains sont finis, d'autres sont en cours de développement et certains ne verront probablement pas le jour!</p>
-        <p>Ce qui motive dans chacun de mes projets est à la fois de répondre à un besoin concret, de penser à l'expérience utilisateur et d'apprendre par la même occasion et de développer mes compétences.</p>
+        <h2>{t('projects.intro')}</h2>
+        <p>{t('projects.p1')}</p>
+        <p>{t('projects.p2')}</p>
 	</div>
     <div class="card-container">
         <article>
             <h3>Booksnap</h3>
-            <p>Application web de gestion de bibliothèque pour moyennes et grandes écoles</p>
-            <a href="https://github.com/SwannJulien/Booksnap" target="_blank" rel="external">Voir le projet</a>
+            <p>{t('projects.booksnap')}</p>
+            <a href={getRelativeLocaleUrl(currentLang, '/booksnap')} target="_blank" rel="external">{t('projects.cta')}</a>
         </article>
         <article>
             <h3>Skills</h3>
-            <p>AI Skills que j'utilise dans mon travail quotidien. <br>Parmis les plus utilisées: Spec Driven Development adapté à mes besoins</p>
-            <a href="https://github.com/SwannJulien/skills" target="_blank" rel="external">Voir le projet</a>
+            <p set:html={t('projects.skills')} />
+            <a href="https://github.com/SwannJulien/skills" target="_blank" rel="external">{t('projects.cta')}</a>
         </article>
         <article>
             <h3>Frontend Mentor</h3>
-            <p>Premiers projets de développement web: on te donne un Figma, tu dois te rapprocher le plus possible du résultat attentu.</p>
-            <a href="https://github.com/SwannJulien/frontend-mentor-challenges" target="_blank" rel="external">Voir le projet</a>
+            <p>{t('projects.frontendMentor')}</p>
+            <a href="https://github.com/SwannJulien/frontend-mentor-challenges" target="_blank" rel="external">{t('projects.cta')}</a>
         </article>
     </div>	
 </Layout>

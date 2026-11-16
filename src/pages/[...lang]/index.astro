@@ -1,11 +1,16 @@
 ---
-import Layout from '../layouts/Layout.astro';
+import Layout from '../../layouts/Layout.astro';
+import { getLangPaths, useTranslations } from '../../i18n/utils';
+
+export const getStaticPaths = getLangPaths;
+
+const t = useTranslations(Astro.currentLocale);
 ---
 
 <Layout>
 	<div class="container">
-		<h1>La <span>créativité</span> n'a de limites que celles qu'on s'impose</h1>
-		<p>Écouter, comprendre, proposer et construire l’application qui donne vie à vos idées, c’est mon métier.</p>
+		<h1 set:html={t('home.title')} />
+		<p>{t('home.subtitle')}</p>
 	</div>	
 </Layout>
 
@@ -37,7 +42,8 @@ import Layout from '../layouts/Layout.astro';
 		color: var(--color-primary);
 	}
 
-	span {
+	/* :global because the span comes from set:html and is not scoped */
+	h1 :global(span) {
 		color: var(--color-accent);
 	}
 </style>

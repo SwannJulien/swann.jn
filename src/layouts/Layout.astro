@@ -2,11 +2,13 @@
 import '../styles/global.css';
 import '../styles/design_system.css';
 import MenuButton from '../components/MenuButton.astro';
-import MenuScreen from '../components/MenuScreen.astro';
+
+const currentLang = Astro.currentLocale || "fr";
+
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang={currentLang}>
 	<head>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width" />
